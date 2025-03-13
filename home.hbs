@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CafeButter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f1e5;
+            color: #5c3d2e;
+            background: url('https://plus.unsplash.com/premium_photo-1664970900025-1e3099ca757a?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YWVzdGhldGljJTIwY2FmZXxlbnwwfHwwfHx8MA%3D%3D') no-repeat center center/cover;
+        }
+
+        /* Transparent overlay to control background opacity */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* 0% transparency */
+            z-index: -1;
+        }
+
+        header {
+            background-color: rgb(65, 45, 18);
+            color: #fff;
+            padding: 1em;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .menu-toggle {
+            font-size: 30px;
+            cursor: pointer;
+            color: white;
+            margin-left: 20px;
+            position: relative;
+            z-index: 1001;
+        }
+        .sidebar {
+            position: fixed;
+            left: -250px;
+            top: 0;
+            width: 250px;
+            height: 100%;
+            background-color: rgb(71, 50, 23);
+            padding-top: 60px;
+            transition: left 0.3s;
+            z-index: 1002;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 15px;
+            text-align: center;
+        }
+        .sidebar ul li a, .back-button {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+        .sidebar ul li:hover, .back-button:hover {
+            background: #8b5e3b;
+        }
+        .back-button {
+            cursor: pointer;
+            padding: 15px;
+            text-align: center;
+            background: #8b5e3b;
+            border: none;
+            width: 100%;
+            color: white;
+            font-size: 16px;
+        }
+        .show-sidebar {
+            left: 0;
+        }
+        .container {
+            text-align: center;
+            padding: 2em;
+        }
+        #about {
+            color:  rgb(222, 209, 202); /* Elegant Dark Gold */
+        }
+        
+        #contact {
+            color:rgb(218, 204, 197); /* Warm Copper */
+        }
+        
+
+        /* Image Slider */
+        .slider-container {
+            width: 1300px;
+            height: 400px;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+        }
+        .slider {
+            display: flex;
+            width: 3600px; /*4 images * 1300px */
+            animation: slide 16s infinite linear;
+        }
+        .slider img {
+            width: 1400px;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        /* Animation for Image Scrolling */
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            33.33% { transform: translateX(-1200px); }
+            66.66% { transform: translateX(-2400px); }
+            100% { transform: translateX(0); }
+        }
+
+
+        .menu-section a {
+            display: block;
+            background-color: rgb(71, 50, 23);
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            margin: 10px auto;
+            width: 50%;
+            font-size: 20px;
+            text-align: center;
+            border-radius: 5px;
+        }
+        .menu-section a:hover {
+            background-color: #8b5e3b;
+        }
+        footer {
+            background-color: rgb(78, 57, 31);
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+        }
+        
+    
+    </style>
+</head>
+<body>
+    <header>
+        <div class="menu-toggle" onclick="toggleSidebar()">&#9776;</div>
+        <h1>CafeButter</h1>
+    </header>
+    <div class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="#home" onclick="closeSidebar()">Home</a></li>
+            <li><a href="menu.hbs" onclick="closeSidebar()">Menu</a></li>
+            <li><a href="cart.hbs" onclick="closeSidebar()">Cart</a></li>
+            <li><a href="#about" onclick="closeSidebar()">About Us</a></li>
+            <li><a href="feedback.hbs" onclick="closeSidebar()">Feedback</a></li>
+            <li><a href="#contact" onclick="closeSidebar()">Contact Us</a></li>
+            <li><button class="back-button" onclick="goBack()">Back</button></li>
+        </ul>
+    </div>
+    <!-- Add Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    
+    <style>
+        .welcome-text {
+            font-family: 'Lobster', cursive;
+            font-size: 40px;
+            color:rgb(221, 211, 206);
+            text-align: center;
+            margin-bottom: 15px; /* Reduced gap */
+        }
+        .welcome-text + p {
+            margin-top: 0;
+            color:rgb(227, 215, 209);
+            font-size: 18px;
+        }
+       
+    </style>
+    
+    <section id="home" class="container">
+        <h2 class="welcome-text">Welcome to CafeButter</h2>
+        <p>Your perfect place to enjoy the best coffee and snacks.</p>
+
+    </section>
+    
+   
+        <!-- Animated Image Slider -->
+        <div class="slider-container">
+            <div class="slider">
+                <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?fm=jpg&q=60&w=3000" alt="Cafe Image 1">
+                <img src="https://wallpapers.com/images/hd/hot-coffee-in-a-coffee-cup-with-coffee-beans-tjr1dy5o0lazx2pc.jpg" alt="Cafe Image 2">
+                <img src="https://fodmap-publicsite-us-east-2.s3.amazonaws.com/production/media/images/Smoothie_bowl.original.jpg?hl=en-IN" alt="Cafe Image 3">
+                <img src="https://i.pinimg.com/474x/34/e9/08/34e90848ac64a2352eba87d126affc17.jpg" alt="Cafe Image 3">
+            </div>
+        </div>
+
+        
+    </section>
+    <section class="menu-section">
+        <a href="menu.hbs">Menu</a>
+        <a href="specialdiets.hbs">Special Diets</a>
+        <a href="gallery.hbs">Gallery</a>
+        <a href="blogs.hbs">Blogs</a>
+        <a href="orderonline.hbs">Order Online</a>
+    </section>
+    <section id="about" class="container">
+        <h2>About Us</h2>
+        <p>At CafeButter, we believe in serving the finest coffee and snacks.</p>
+    </section>
+    <section id="contact" class="container">
+        <h2>Contact Us</h2>
+        <p>Email: info@cafebutter.com</p>
+        <p>Phone: (123) 456-7890</p>
+        <p>Address: 123 Coffee St, Caffeine City, CA 12345</p>
+        
+    </section>
+    <footer>
+        <p>&copy; 2025 CafeButter. All rights reserved.</p>
+    </footer>
+    <script>
+        function toggleSidebar() {
+            var sidebar = document.getElementById("sidebar");
+            sidebar.classList.toggle("show-sidebar");
+        }
+        function closeSidebar() {
+            var sidebar = document.getElementById("sidebar");
+            sidebar.classList.remove("show-sidebar");
+        }
+        function goBack() {
+            window.location.href = "#home";
+            closeSidebar();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CafeButter Menu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f1ea;
+            color: #4e342e;
+        }
+        header {
+            background-color: #6d4c41;
+            color: white;
+            padding: 1em;
+            text-align: center;
+            font-size: 26px;
+            font-weight: bold;
+        }
+        .menu-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #795548;
+            border-bottom: 2px solid #6d4c41;
+            padding-bottom: 5px;
+        }
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 15px 0;
+            padding: 10px;
+            border-bottom: 1px dashed #ccc;
+        }
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+        .menu-item h3 {
+            margin: 0;
+            color: #5d4037;
+        }
+        .price {
+            font-size: 16px;
+            font-weight: bold;
+            color: #6d4c41;
+        }
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+        }
+        .quantity-controls button {
+            background-color: #6d4c41;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            margin: 0 5px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .quantity {
+            font-size: 16px;
+            font-weight: bold;
+            min-width: 20px;
+            text-align: center;
+        }
+        .checkout-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #d35400;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        CafeButter Menu
+    </header>
+
+    <div class="menu-container" id="menu">
+        <!-- Menu items will be inserted here by JavaScript -->
+    </div>
+
+    <button class="checkout-btn" onclick="goToCart()">Go to Cart</button>
+
+    <script>
+        const menuItems = [
+            { name: "Espresso", price: 120 },
+            { name: "Americano", price: 130 },
+            { name: "Long Black", price: 140 },
+            { name: "Cappuccino", price: 150 },
+            { name: "Latte", price: 160 },
+            { name: "Flat White", price: 170 },
+            { name: "Macchiato", price: 140 },
+            { name: "Mocha", price: 180 },
+            { name: "Affogato", price: 190 },
+            { name: "Irish Coffee", price: 220 },
+            { name: "Iced Coffee", price: 150 },
+            { name: "Cold Brew", price: 180 },
+            { name: "Frappé", price: 170 },
+            { name: "Nitro Coffee", price: 200 }
+        ];
+        
+        function getCart() {
+            return JSON.parse(localStorage.getItem('cart')) || [];
+        }
+
+        function saveCart(cart) {
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        function updateCartDisplay(itemName) {
+            const cart = getCart();
+            const item = cart.find(item => item.name === itemName);
+            document.getElementById(`quantity-${itemName}`).innerText = item ? item.quantity : 0;
+        }
+
+        function addToCart(name, price) {
+            let cart = getCart();
+            let existingItem = cart.find(item => item.name === name);
+
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ name, price, quantity: 1 });
+            }
+
+            saveCart(cart);
+            updateCartDisplay(name);
+        }
+
+        function removeFromCart(name) {
+            let cart = getCart();
+            let itemIndex = cart.findIndex(item => item.name === name);
+
+            if (itemIndex !== -1) {
+                if (cart[itemIndex].quantity > 1) {
+                    cart[itemIndex].quantity -= 0;
+                } else {
+                    cart.splice(itemIndex, );
+                }
+            }
+
+            saveCart(cart);
+            updateCartDisplay(name);
+        }
+
+        function renderMenu() {
+            const menuContainer = document.getElementById("menu");
+            menuContainer.innerHTML = ""; // Clear menu before rendering
+
+            menuItems.forEach(item => {
+                const menuItem = document.createElement("div");
+                menuItem.classList.add("menu-item");
+                menuItem.innerHTML = `
+                    <h3>${item.name} <span class="price">₹${item.price}</span></h3>
+                    <div class="quantity-controls">
+                        <button onclick="removeFromCart('${item.name}')">-</button>
+                        <span class="quantity" id="quantity-${item.name}">0</span>
+                        <button onclick="addToCart('${item.name}', ${item.price})">+</button>
+                    </div>
+                `;
+                menuContainer.appendChild(menuItem);
+
+                updateCartDisplay(item.name);
+            });
+        }
+
+        function goToCart() {
+            window.location.href = '/cart.hbs'; // Redirects to the cart page
+        }
+
+        document.addEventListener("DOMContentLoaded", renderMenu);
+    </script>
+
+</body>
+</html>

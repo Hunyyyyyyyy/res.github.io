@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Cafe Menu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5e6d9;
+            color: #5c3d2e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('https://plus.unsplash.com/premium_photo-1664970900025-1e3099ca757a?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YWVzdGhldGljJTIwY2FmZXxlbnwwfHwwfHx8MA%3D%3D') no-repeat center center/cover;
+        }
+
+        /* Transparent overlay to control background opacity */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* 50% transparency */
+            z-index: -1;
+        }
+
+        .container {
+            background-color: #fff8f0;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+        }
+
+        h1 {
+            color: #8b5e3b;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .menu-item, .special-diets {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #e0c3a1;
+            margin: 10px 0;
+            padding: 12px 15px;
+            border-radius: 6px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #5c3d2e;
+            transition: 0.3s;
+        }
+
+        .menu-item:hover, .special-diets:hover {
+            background-color: #d2a679;
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+
+        .menu-item a, .special-diets a {
+            text-decoration: none;
+            color: white;
+            background-color: #8b5e3b;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .menu-item a:hover, .special-diets a:hover {
+            background-color: #6f442b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Special Diets</h1>
+        <div class="special-diets">GlutenFree <a href="glutenfree.hbs">→</a></div>
+        <div class="special-diets">Vegan <a href="vegan.hbs">→</a></div>
+    </div>
+</body>
+</html>

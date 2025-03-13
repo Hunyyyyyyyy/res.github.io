@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café Feedback</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f1e5;
+            color: #5c3d2e;
+            text-align: center;
+        }
+
+        /* Header */
+        header {
+            background-color: #8b5e3b;
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Form Container */
+        .container {
+            max-width: 500px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+        }
+
+        /* Input Fields */
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .input-group label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .input-group input,
+        .input-group textarea,
+        .input-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #8b5e3b;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        /* Submit Button */
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: #8b5e3b;
+            color: white;
+            border: none;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #6b3e26;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>📢 We Value Your Feedback!</header>
+
+    <div class="container">
+        <form id="feedbackForm">
+            <div class="input-group">
+                <label for="name">👤 Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+
+            <div class="input-group">
+                <label for="email">📧 Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="input-group">
+                <label for="rating">⭐ Rate Your Experience:</label>
+                <select id="rating" name="rating">
+                    <option value="5">🌟🌟🌟🌟🌟 (Excellent)</option>
+                    <option value="4">🌟🌟🌟🌟 (Good)</option>
+                    <option value="3">🌟🌟🌟 (Average)</option>
+                    <option value="2">🌟🌟 (Poor)</option>
+                    <option value="1">🌟 (Very Bad)</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="message">📝 Your Feedback:</label>
+                <textarea id="message" name="message" rows="4" placeholder="Tell us about your experience..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn">Submit Feedback</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("feedbackForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevents default form submission
+            alert("Thank you for your feedback! Redirecting to homepage...");
+            window.location.href = "/home.hbs"; // Redirects to homepage
+        });
+    </script>
+
+</body>
+</html>

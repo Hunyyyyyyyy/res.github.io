@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café Blogs</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f1e9;
+            color: #5a3e36;
+        }
+        
+        header {
+            background-color: #8b5e3b;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 15px;
+        }
+
+        .blog-content h3 {
+            margin: 0;
+            font-size: 20px;
+            color: #8b5e3b;
+        }
+
+        .blog-content p {
+            font-size: 14px;
+            color: #6e4c40;
+            margin: 10px 0;
+        }
+
+        .read-more {
+            display: inline-block;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #8b5e3b;
+            font-weight: bold;
+        }
+
+        .read-more:hover {
+            color: #5a3e36;
+        }
+
+     
+    </style>
+</head>
+<body>
+
+<header> Blogs</header>
+
+<div class="container">
+    <div class="blog-grid">
+        <div class="blog-card">
+            <img src="https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AA1tjLCR.img?h=1280&m=4&q=89&w=1920" alt="Coffee">
+            <div class="blog-content">
+                <h3>The Perfect Brew</h3>
+                <p>Discover the secrets behind brewing the perfect cup of coffee.</p>
+                <a href="blogs1.hbs" class="read-more">Read More →</a>
+            </div>
+        </div>
+
+        <div class="blog-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmAnnVeirv3XImhVdfkxT-l5-Ki9zU3ZCSjUBTPYROnW8r9qdnNxonfHV8a7g-34ag6_4&usqp=CAU" alt="Cafe">
+            <div class="blog-content">
+                <h3>Cozy Cafe Spots</h3>
+                <p>Explore the most aesthetic and cozy cafés in your city.</p>
+                <a href="blogs2.hbs" class="read-more">Read More →</a>
+            </div>
+        </div>
+
+        <div class="blog-card">
+            <img src="https://images.lifestyleasia.com/wp-content/uploads/sites/7/2023/01/02144230/vikaskhannagroup_322423313_149619327544915_1677166629509941165_n-806x806.jpg" alt="Cafe">
+            <div class="blog-content">
+                <h3>Behind the Apron: Stories from Our Cafe Chefs</h3>
+                <p>We are taking into the heart of our kitchen to share the passion, creativity and the inspiration behind our menu.</p>
+                <a href="blogs5.hbs" class="read-more">Read More →</a>
+            </div>
+        </div>
+
+        <div class="blog-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjq9ZscY4J82RGNLQPVq05Re6btXCFTBlYM89rBwR6lPNgjOuhUGe7j-dYKzsfz0gMCuA&usqp=CAU" alt="Cafe">
+            <div class="blog-content">
+                <h3>Brewed For You</h3>
+                <p>A perfect blend of fun and flavour.</p>
+                <a href="blogs6.hbs" class="read-more">Read More →</a>
+            </div>
+        </div>
+
+        <div class="blog-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9iXhPaCTFtK945JuwM0pVtZC4qQ7mTeq8hT1L8kqULcV3lTwN23F0p-HbCrkEi5Vb3dw&usqp=CAU" alt="Cafe">
+            <div class="blog-content">
+                <h3>Seasonal Special Drink</h3>
+                <p>
+                    we love celebrating the flavors of the season with unique, handcrafted drinks.</p>
+                <a href="blogs4.hbs" class="read-more">Read More →</a>
+            </div>
+        </div>
+
+
+        <div class="blog-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2bFwvYBN79n17s8G1QrLOnk_r24FICqIQL9Dz1Rr0Bmy52sNwHTQjvTd-fop4V-cuoS8&usqp=CAUhttps://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2bFwvYBN79n17s8G1QrLOnk_r24FICqIQL9Dz1Rr0Bmy52sNwHTQjvTd-fop4V-cuoS8&usqp=CAU" alt="Pastry">
+            <div class="blog-content">
+                <h3>Pastry Perfection</h3>
+                <p>A deep dive into the art of baking delicious pastries.</p>
+                <a href="blogs3.hbs" class="read-more">Read More →</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

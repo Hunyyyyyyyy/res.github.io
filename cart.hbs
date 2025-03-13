@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - CafeButter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f1ea;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #6d4c41;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+        .cart-item button {
+            background-color: #8b5e3b;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .cart-item button:hover {
+            background-color: #6d4c41;
+        }
+        .total {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .payment-method {
+            margin-top: 20px;
+        }
+        .checkout-btn {
+            background-color: #d35400;
+            color: white;
+            padding: 10px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .checkout-btn:hover {
+            background-color: #a04000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Your Cart</h1>
+        <div id="cart"></div>
+        <div class="total">Total: ₹<span id="total-price">0</span></div>
+        
+        <div class="payment-method">
+            <h3>Select Payment Method</h3>
+            <select id="payment-mode">
+                <option value="card">Credit/Debit Card</option>
+                <option value="upi">UPI</option>
+                <option value="cod">Cash on Delivery</option>
+            </select>
+        </div>
+        
+        <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
+    </div>
+
+    <script>
+        function getCart() {
+            return JSON.parse(localStorage.getItem('cart')) || [];
+        }
+    
+        function saveCart(cart) {
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+    
+        function calculateTotal() {
+            let cart = getCart();
+            let total = 0;
+    
+            cart.forEach(item => {
+                let price = parseFloat(item.price) || 0;  // Ensure price is a valid number
+                let quantity = parseInt(item.quantity) || 1; // Ensure quantity is a valid number
+                total += price * quantity;
+            });
+    
+            document.getElementById("total-price").innerText = total.toFixed(2); // Format to 2 decimal places
+        }
+    
+        function renderCart() {
+            let cart = getCart();
+            let cartHTML = "";
+    
+            if (cart.length === 0) {
+                cartHTML = "<p>Your cart is empty.</p>";
+            } else {
+                cart.forEach((item, index) => {
+                    let name = item.name || "Unnamed Item";  
+                    let price = item.price ? `₹${parseFloat(item.price).toFixed(2)}` : "₹0.00";  
+                    let quantity = item.quantity || 1;
+    
+                    cartHTML += `
+                        <div class="cart-item">
+                            <span>${name} - ${price}</span>
+                            <span>
+                                <button onclick="updateQuantity(${index}, -1)">-</button>
+                                ${quantity}
+                                <button onclick="updateQuantity(${index}, 1)">+</button>
+                            </span>
+                        </div>
+                    `;
+                });
+            }
+    
+            document.getElementById("cart").innerHTML = cartHTML;
+            calculateTotal();
+        }
+    
+        function updateQuantity(index, change) {
+            let cart = getCart();
+            if (cart[index]) {
+                cart[index].quantity = Math.max(1, (parseInt(cart[index].quantity) || 1) + change); // Ensure no negative values
+            }
+            saveCart(cart);
+            renderCart();
+        }
+    
+        function checkout() {
+            let paymentMode = document.getElementById("payment-mode").value;
+            alert("Order placed successfully with " + paymentMode + " payment!");
+            window.location.href = "home.hbs"; // Redirect to home.hbs after checkout
+        }
+    
+        renderCart();
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café Events</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f1e5;
+            color: #5c3d2e;
+            text-align: center;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #8b5e3b;
+            color: white;
+            padding: 20px;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        /* Container */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 40px auto;
+            width: 90%;
+        }
+
+        /* Event Card Styling */
+        .event-card {
+            background: white;
+            width: 300px;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .event-card:hover {
+            transform: scale(1.05);
+        }
+
+        /* Event Image */
+        .event-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        /* Event Info */
+        .event-info {
+            padding: 15px;
+        }
+
+        .event-info h2 {
+            font-size: 20px;
+            color: #8b5e3b;
+        }
+
+        .event-info p {
+            font-size: 16px;
+            color: #5c3d2e;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+       Brewed For You
+    </header>
+
+    <div class="container">
+        <!-- Live Music Nights -->
+        <div class="event-card">
+            <img src="https://images.squarespace-cdn.com/content/v1/582ad1726b8f5b41b55c2dc7/2c2da914-4884-4601-b871-8c37184eb644/live-music-places-pubs-bars-in-bath.png" alt="Live Music Night">
+            <div class="event-info">
+                <h2>🎶 Live Music Nights</h2>
+                <p>Join us every Friday for an evening of smooth tunes and great vibes! Enjoy live performances by talented local musicians as you sip your favorite coffee.</p>
+            </div>
+        </div>
+
+        <!-- Open Mic Night -->
+        <div class="event-card">
+            <img src="https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg" alt="Open Mic Night">
+            <div class="event-info">
+                <h2>🎤 Open Mic Night</h2>
+                <p>Unleash your creativity! Whether you're a singer, poet, or comedian, take the stage and share your talent in a fun and supportive space.</p>
+            </div>
+        </div>
+
+        <!-- Art Showcase -->
+        <div class="event-card">
+            <img src="https://www.jerrysartarama.com/blog/images/2013/07/coffee1.jpg" alt="Art Showcase">
+            <div class="event-info">
+                <h2>🎨 Art Showcase</h2>
+                <p>Immerse yourself in the local art scene! Our café turns into a gallery for an evening, featuring paintings, photography, and more by talented artists.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

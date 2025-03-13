@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Behind the Apron - Cafe Chefs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f1e5;
+            color: #5c3d2e;
+            text-align: center;
+        }
+
+        header {
+            background-color: #8b5e3b;
+            color: white;
+            padding: 20px;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .container {
+            width: 80%;
+            margin: 30px auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .chef-card {
+            background: white;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            width: 320px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+            text-align: left;
+        }
+
+        .chef-card:hover {
+            transform: scale(1.05);
+        }
+
+        .chef-img {
+            width: 100%;
+            height: 200px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .chef-name {
+            font-size: 22px;
+            font-weight: bold;
+            margin: 10px 0;
+            color: #8b5e3b;
+        }
+
+        .chef-role {
+            font-size: 18px;
+            font-weight: bold;
+            color: #5c3d2e;
+            margin-bottom: 10px;
+        }
+
+        .chef-quote {
+            font-size: 16px;
+            font-style: italic;
+            color: #5c3d2e;
+        }
+    </style>
+</head>
+<body>
+
+    <header>Behind the Apron: Stories from Our Cafe Chefs</header>
+
+    <div class="container">
+        <div class="chef-card">
+            <img class="chef-img" src="https://assets.cntraveller.in/photos/60ba16548c5b530e12127511/16:9/w_1024%2Cc_limit/RRAAA-S2_9-1366x768.jpg" alt="Chef ranveer">
+            <div class="chef-name">Chef Ranveer Brar</div>
+            <div class="chef-role">The Breakfast Artisan</div>
+            <div class="chef-quote">
+                "Mornings at the café are my favorite. There’s something magical about the scent of fresh pastries and hot lattes. Seeing a customer’s smile after the first bite makes those early mornings worth it."
+            </div>
+        </div>
+
+        <div class="chef-card">
+            <img class="chef-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTV12Q3nVyvX9cgpLcEKifTalGx19iuUL70ZtWm97XhaAZJGJ92JlTHc1MpOcUViyV3FOk&usqp=CAU" alt="Chef Maria">
+            <div class="chef-name">Chef Garima Arora </div>
+            <div class="chef-role">The Queen of Seasonal Specials</div>
+            <div class="chef-quote">
+                "I find inspiration in the seasons. Each drink and dish should tell a story of the time of year. Experimenting with new flavors and seeing what our customers love most is my favorite part."
+            </div>
+        </div>
+
+        <div class="chef-card">
+            <img class="chef-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt1A_duyAXQ2HJFxORyis2mZucRbbCpPG6BkpD-_L70H4quRDmMs_-dQ4q0IQUXPLc8hg&usqp=CAU" alt="Chef Liam">
+            <div class="chef-name">Chef Vikas Khanna</div>
+            <div class="chef-role">The Pastry Perfectionist</div>
+            <div class="chef-quote">
+                "Baking is both an art and a science. I love crafting pastries that pair perfectly with coffee. My favorite? The seasonal scones we bake fresh every morning."
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafe Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f1e5;
+            text-align: center;
+        }
+        .header {
+            background-color:  #8b5e3b;
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            padding: 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        .gallery img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+        .footer {
+            background-color:  #8b5e3b;
+            color: white;
+            padding: 10px;
+            margin-top: 20px;
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <div class="header"> Gallery</div>
+    <div class="gallery">
+        <img src="https://i.pinimg.com/originals/51/7c/c8/517cc8a781f778d4ef099cb026dd4667.jpg" alt="Coffee">
+        <img src="https://www.midwestliving.com/thmb/QVJFg-5p8tkJU0PlOWe5OSjKCS4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/cherry-lime-gin-rickey-RU369910-305de533944f40d6ae2828a226a2b277.jpg" alt="Dessert">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTudxHPQzly9eh_zhfEqdSpJOJkD4uc_iNLA&s" alt="Dessert">
+         <img src="https://clubmahindra.gumlet.io/blog/media/section_images/desktop-7d2fa0ff13c8a9f.jpg?w=376&dpr=2.6" alt="Dessert".>
+         <img src="https://www.posist.com/restaurant-times/wp-content/uploads/2016/08/bar-401546_1920-768x512.jpg?hl=en-IN" alt="Dessert">
+          <img src="https://i0.wp.com/coffeeculture.asia/wp-content/uploads/2023/08/Modern-Cafe-interior-design-ideas-Small-Cafe-Coffee-set-up-shopping-list-coffee-culture-thailand.jpg?fit=1200%2C1200&ssl=1&hl=en-IN" alt="Dessert"" alt="Dessert">
+        <img src="https://kreamz.in/wp-content/uploads/2023/12/Blueberry-Pastry-1.webp?hl=en-IN" alt="Dessert">
+         <img src="https://minimalistbaker.com/wp-content/uploads/2015/04/AMAZING-Green-Smoothie-Bowls-Change-the-color-with-shade-of-berry.-The-BEST-way-to-make-a-smoothie-a-meal-vegan-glutenfree.jpg?hl=en-IN" alt="Dessert"" alt="Dessert">
+         <img src="https://5.imimg.com/data5/SELLER/Default/2022/8/HZ/WC/HK/148640419/hire-all-rounder-chef-for-cafe.jpg" alt="Dessert"" alt="Dessert">
+    </div>
+    <div class="footer">&copy; 2025 CafeButter | All Rights Reserved</div>
+</body>
+</html>
